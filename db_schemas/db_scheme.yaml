@@ -1,0 +1,89 @@
+Table m_station {
+  id int pk
+  name varchar(255)
+}
+
+Table m_train {
+  id int pk [not null]
+  train_type varchar(255) [not null]
+  train_name varchar(255) [not null]
+  train_code varchar(255) [not null]
+}
+
+Table m_train_wagon {
+  id int pk [not null]
+  train_id int [not null]
+  code varchar(255) [not null]
+  capacity numeric [not null]
+}
+
+Table m_route {
+  id int pk
+  departure_station_id int
+  arrival_station_id int
+}
+
+Table m_train_schedule {
+  id int pk [not null]
+  train_id int [not null]
+  route_id int [not null]
+  start_time int [not null]
+  end_time int [not null]
+  day varchar(255) [not null]
+  price int
+}
+
+Table m_train_travel {
+  id int pk [not null]
+  m_train_schedule_id int [not null]
+  travel_date datetime [not null]
+}
+
+Table m_customer {
+  id int pk
+  name varchar(255)
+  identity_number varchar(255)
+  dob timestamp
+  place_of_birth varchar(255)
+  address varchar(255)
+}
+
+Table m_user {
+  id int pk
+  m_customer_id int 
+  username varchar
+  password varchar
+}
+
+Table t_transaction {
+  id int pk
+  m_customer_id int
+  train_id int
+  route_id int
+  travel_date timestamp
+  start_time varchar
+  end_time varchar
+  price int
+  status varchar
+  transaction_date timestamp
+}
+
+Table t_notification {
+  id int pk
+  subject varchar
+  email_to varchar
+  email_from varchar
+  body varchar
+  status varchar
+}
+
+Ref: m_train_wagon.train_id > m_train.id
+Ref: m_route.departure_station_id > m_station.id
+Ref: m_route.arrival_station_id > m_station.id
+Ref: m_user.m_customer_id > m_customer.id
+Ref: m_train_travel.m_train_schedule_id > m_train_schedule.id
+Ref: m_train_schedule.route_id > m_route.id
+Ref: m_train_schedule.train_id > m_train.id
+Ref: t_transaction.m_customer_id > m_customer.id
+Ref: t_transaction.train_id > m_train.id
+Ref: t_transaction.route_id > m_route.id
