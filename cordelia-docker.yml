@@ -7,7 +7,7 @@ app:
 redis:
   config:
     cache:
-      host: localhost
+      host: redis
       port: 6379
       password: "SevenEightTwo782"
 spring:
