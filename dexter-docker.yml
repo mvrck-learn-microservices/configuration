@@ -1,7 +1,7 @@
 app:
   service:
     cordelia:
-      baseUrl: cordelia:8081
+      baseUrl: http://cordelia:8081
 redis:
   config:
     cache:
