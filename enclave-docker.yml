@@ -1,7 +1,7 @@
 app:
   service:
     cordelia:
-      baseUrl: http://my-network:8081
+      baseUrl: http://cordelia:8081
       clientId: nightfury
       secret: secret
       grantType: password
