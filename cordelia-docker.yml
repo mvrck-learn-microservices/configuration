@@ -12,11 +12,9 @@ redis:
       password: "SevenEightTwo782"
 spring:
   datasource:
-    url: "jdbc:h2:mem:testdb"
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
-  jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    url: "jdbc:mysql://mysql:3306/learn_microservice?allowPublicKeyRetrieval=true&useSSL=false"
+    username: root
+    password: SevenEightTwo782
+    driverClassName: com.mysql.cj.jdbc.Driver
 server:
   port: 8081
