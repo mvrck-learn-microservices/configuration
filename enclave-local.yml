@@ -5,6 +5,8 @@ app:
       clientId: nightfury
       secret: secret
       grantType: password
+    dexter:
+      baseUrl: http://localhost:8083
 redis:
   config:
     cache:
