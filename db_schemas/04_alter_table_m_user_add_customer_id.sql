@@ -1,0 +1,6 @@
+SET autocommit = OFF;
+
+START TRANSACTION;
+    ALTER TABLE m_user ADD COLUMN customer_id BIGINT NULL;
+    ALTER TABLE m_user ADD CONSTRAINT FK_CUSTOMER_ID FOREIGN KEY (customer_id) REFERENCES m_customer(id);
+COMMIT;
