@@ -6,7 +6,7 @@ app:
       secret: secret
       grantType: password
     dexter:
-      baseUrl: http://dexter:8083
+      baseUrl: http://dexter:8083/api/dexter
 redis:
   config:
     cache:
